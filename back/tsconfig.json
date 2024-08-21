@@ -1,0 +1,41 @@
+{
+    "ts-node": {
+        // Do not forget to `npm i -D tsconfig-paths`
+        "require": ["tsconfig-paths/register"]
+    },
+    "compilerOptions": {
+        "incremental": false,
+        "target": "es2022",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020"],
+        "module": "commonjs",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        // "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "noEmit": true,
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+
+        "removeComments": true,
+        "outDir": "./dist",
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "typeRoots": ["node_modules/@types", "../types/", "./types"],
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./*"],
+            "#/*": ["./../*"]
+        }
+    },
+    "include": ["./**/*"]
+}
