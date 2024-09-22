@@ -5,7 +5,11 @@ import jwt from 'jsonwebtoken';
 
 // routes imports
 import authRoutes from '~/routes/auth.routes';
-
+import projectRoutes from '~/routes/project.routes';
+import teamRoutes from '~/routes/team.routes';
+import accountRoutes from '~/routes/account.routes';
+import baseRoutes from '~/routes/base.routes';
+import activityRoutes from '~/routes/activity.routes';
 
 // middleware imports
 import healthCheck from '~/middleware/healthCheck';
@@ -58,9 +62,13 @@ export const registerCoreMiddleware = (): void => {
 
         app.use(healthCheck);
         app.use('/auth', authRoutes);
+        app.use('/api', baseRoutes);
 
         app.use(verifyToken);
-       
+        app.use('/projects', projectRoutes);
+        app.use('/teams', teamRoutes);
+        app.use('/account', accountRoutes);
+        app.use('/activity', activityRoutes);
         app.use(notFound);
     } catch (error) {
         logger.error('Error while registering core middlewares', error);
